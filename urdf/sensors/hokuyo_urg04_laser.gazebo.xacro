@@ -28,14 +28,13 @@
                   <stddev>0.01</stddev>
              </noise>
         </ray>
+      <plugin name="gazebo_ros_${name}_controller" filename="libgazebo_ros_ray_sensor.so">
+	    <ros>
+            <remapping>~/out:=/scan</remapping>
+            </ros>
+            <output_type>sensor_msgs/LaserScan</output_type>
 
-	<plugin name="gazebo_ros_${name}_controller" filename="libgazebo_ros_laser.so">
-	    <robotNamespace></robotNamespace>
-            <gaussianNoise>0.005</gaussianNoise>
-            <updateRate>${update_rate}</updateRate>
-            <topicName>${ros_topic}</topicName>
-            <frameName>/${name}_link</frameName>
-         </plugin>
+       </plugin>
       </sensor>
     </gazebo>
   </xacro:macro>
